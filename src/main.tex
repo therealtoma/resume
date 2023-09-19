@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=black,%
+urlcolor=MyDarkBlue}
+
+
+
+\definecolor{MyDarkBlue}{rgb}{0.0, 0.0, 0.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{1in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-8pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{}
+      \setlength{\rightmargin}{}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{0pt}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \noindent \makebox[\linewidth][l]{{\textbf{#2}} \hfill {\footnotesize #1}} \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{•}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \textbf{#1} \\ 
+  \noindent \makebox[\linewidth][l]{{\small #2} \hfill {\footnotesize #3 (#4)}} \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+\name{Alberto Tomasin} \\
+
+\contact{\href{mailto:alberto.tomasin@gmail.com}{\underline{ \faEnvelope \hspace{0.1cm} alberto.tomasin@gmail.com}}
+\hspace{0.2cm}   \hspace{0.2cm}
+  \href{https://github.com/therealtoma}{\underline{\faGithub \hspace{0.1cm}  github} } 
+       \hspace{0.2cm}   \hspace{0.2cm}
+     \href{https://www.linkedin.com/in/alberto-tomasin/} {\underline{\faLinkedin \hspace{0.1cm}  linkedin}}  
+\hspace{0.2cm}   \hspace{0.2cm}
+  \href{tel:393423779629}{{\underline{\faPhone \hspace{0.1cm} (+39) 370 155 6359} }}}
+\end{resume_header}
+
+
+
+
+
+
+\begin{resume_section}{Experience}
+    \begin{resume_employer}{\href{https://www.izsvenezie.it/}{Istituto Zooprofilattico Sperimentale delle Venezie} }{\textit{Borsista}}{\textit{Legnaro, Padua}}{\textit{12/2021 - Present}}
+    \vspace{-\baselineskip}
+    
+\item Development and maintenance of a tool internally used by veterinarians to record, monitor and manage avian influenza in Europe.
+
+\item Developing a GIS web app to help WOAH manage and store its geospatial data.
+
+\item Developing and mantaining a GIS tool to help veterinaries record, monitor and manage African Swine fever in the italian soil.
+
+\item Use of remote sensing techniques to extract raw raster images with which to produce indices (VI, LST, ...) and mantaining the current image archive.
+
+\vspace{0.2cm}
+
+\end{resume_employer}
+
+\begin{resume_employer}{IT Associate @ JEVE}{\textit{}}{\textit{Italy}}{\textit{04/2022 - 05/2023}}
+     \vspace{-\baselineskip}
+    \item Managing IT's infrastructure
+    \item Developed web sites for local companies using Wordpress
+    \item Organized numerous events and hackathons to raise awareness of the association and recruit resources
+  
+ \vspace{0.2cm}
+  
+\end{resume_employer}
+\end{resume_section}
+
+\begin{resume_section}{Selected Project}
+  \begin{resume_subsection}[\textbf{[} \href{}{}\href{https://github.com/therealtoma/EUResearchHub}{\underline{Code} }\textbf{]}]{EUResearchHub}
+\vspace{-\baselineskip}
+    This was a Data Bases exam project aimed to implement a web application for the internal evaluation of research projects to be submitted for funding to the European Union.
+  \end{resume_subsection}
+  \begin{resume_subsection}[\textbf{[} \href{}{}\href{https://github.com/jevecafoscari/jeve-mailsender-python_1}{\underline{Code} }\textbf{]}]{JEVE mailsender}
+\vspace{-\baselineskip}
+    Developed a script designed to send thousands of profiling emails automatically.
+  \end{resume_subsection}
+\vspace{0.2cm}
+\end{resume_section}
+\begin{resume_section}{Education}
+    \begin{resume_employer}{Ca' Foscari University of Venice }{\textit{Bachelor of Computer Science}}{}{\textit{2021 - present}}
+    \vspace{-\baselineskip}
+  \end{resume_employer}
+    \begin{resume_employer}{I.T.I. Severi }{\textit{Diploma in computer science}}{\textit{Padua}}{\textit{2016 - 2021}}
+    \vspace{-\baselineskip}
+  \end{resume_employer}
+  \end{resume_section}
+    \vspace{-\baselineskip}
+
+\end{resume_section}
+
+
+\begin{resume_section}{Skills}
+  \begin{nospacetabbing}
+
+\textbf{Programming Languages}  \= R, Python, C, C++, Java, PHP, HTML, CSS, JavaScript, MySQL, PostgreSQL/PostGIS\\
+   \textbf{Languages} \> Italian (native), English (fluent)\\*
+  
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{About me}
+
+\end{resume_section}
+
+
+
+
+
+
+
+
+\end{resume_section}
+
+\end{document}
